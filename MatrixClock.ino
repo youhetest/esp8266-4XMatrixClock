@@ -9,7 +9,10 @@
 #define SCL        4      // Pin scl (I2C)
 #define CS         15     // Pin cs  (SPI)
 #define anzMAX     4     
-#define ROTATE_90
+// #define ROTATE_90 //给的原始代码是错的，这里屏蔽，增加下面垂直和水平旋转后完全正确
+#define REVERSE_HORIZONTAL 
+#define REVERSE_VERTICAL
+
 char ssid[] = "";                    // your WIFI SSID (name)
 char pass[] = "";                    // your WIFI password
 unsigned short maxPosX = anzMAX * 8 - 1;            
