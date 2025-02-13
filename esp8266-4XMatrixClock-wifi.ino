@@ -838,12 +838,13 @@ void loop() {
             y = y2;                 //scroll updown
             sc1 = 1;
             sek1++;
+            // 获取光敏电阻值，自动改变屏幕亮度
             sensorValue = analogRead(A0); 
             Serial.print("LDR Value: ");
             Serial.println(sensorValue);
-            float voltage = sensorValue * (3.3 / 1023.0); 
-            Serial.println(sensorValue);
-            Serial.println(16 - sensorValue/64); 
+            // float voltage = sensorValue * (3.3 / 1023.0); 
+            // Serial.println(sensorValue);
+            // Serial.println(16 - sensorValue/64); 
             // max7219_set_brightness(16 - sensorValue/64);
             int brightness = 2; // 默认亮度
             if (sensorValue > 100 && sensorValue <= 200) {
@@ -851,6 +852,8 @@ void loop() {
             } else if (sensorValue > 200) {
                 brightness = 15;
             }
+            Serial.println("屏幕亮度等级：");
+            Serial.println(sensorValue);
             max7219_set_brightness(brightness);   // 设置亮度
 
             // max7219_set_brightness(2);
